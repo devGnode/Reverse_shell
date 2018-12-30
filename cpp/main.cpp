@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 	}
 	
 	sin.sin_family 		= AF_INET;
-	sin.sin_port   		= htons(1234);
+	sin.sin_port   		= htons(4444);
 	sin.sin_addr.s_addr = inet_addr( "" );
 	printf("[+] Socket created\r\n" );
 	printf("[+] connect on 0x%08x \r\n", sin.sin_addr.s_addr );
