@@ -4,9 +4,17 @@
 
 Warning, this reverse shell is not portable, just for show example how does a reverse shell in x86 in assembly code, this method is really old
 
-- Ligne 78 v2 : LoadLibraryA
-- Ligne 79 v2 : GetProcAddress
-- Ligne 193 v2: SOKADDR_IN
+- Ligne 78 v2 : LoadLibraryA replace it by your own offset
+- Ligne 79 v2 : GetProcAddress replace it by your own offset
+- Ligne 193 v2: SOKADDR_IN set you own port and IP address
+
+### Architecture
+
+Win32 plateform
+
+- XP 
+- Win 7
+- Win 10 - Windows Defender Detects it's bad for you
 
 ### Compilation 
 
