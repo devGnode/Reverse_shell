@@ -2,8 +2,7 @@
 
 ## :one: Reverse Shell x86 :fr:
 
-Warning, this reverse shell is not portable, just for example how does make a reverse shell in asm x86, this method is really old.
-
+Warning, this reverse shell is not portable, just for show example how does a reverse shell in x86 in assembly code, this method is really old
 
 - Ligne 78 v2 : LoadLibraryA
 - Ligne 79 v2 : GetProcAddress
