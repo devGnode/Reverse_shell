@@ -14,7 +14,7 @@ Win32 plateform
 
 - XP 
 - Win 7
-- Win 10 - Windows Defender Detects it's bad for you
+- Win 10 - Windows Defender Detects it's bad for himself
 
 ### Compilation 
 
