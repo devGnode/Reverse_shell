@@ -40,3 +40,10 @@ Write on an ide really basic devcpp on windows
 <img src="https://zupimages.net/up/18/52/3s63.png">
 <img src="https://zupimages.net/up/18/52/y6mk.png">
 
+### Win 10 pro reverse cpp
+
+<img src="https://zupimages.net/up/18/52/ztqp.png">
+<img src="https://zupimages.net/up/18/52/dt6r.png">
+<img src="https://zupimages.net/up/18/52/a96f.png">
+
+
