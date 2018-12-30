@@ -33,3 +33,9 @@ $cat reverse_shell_bin | hexdump -C
 
 <img src="https://zupimages.net/up/18/52/3s63.png">
 <img src="https://zupimages.net/up/18/52/y6mk.png">
+
+### CPP 
+
+Write on an ide really basic devcpp on windows
+
+- Inlude at your projet : MinGw-x86-64\libws2_32.so
