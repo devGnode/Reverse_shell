@@ -10,4 +10,4 @@ Warning, this reverse shell is not portable, just for example how does make a re
 - Ligne 193 v2: SOKADDR_IN
 
 <img src="https://zupimages.net/up/18/52/3s63.png">
-<center><img src="https://zupimages.net/up/18/52/y6mk.png"></center>
+[center]<img src="https://zupimages.net/up/18/52/y6mk.png">[/center]
