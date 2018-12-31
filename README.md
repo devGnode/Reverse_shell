@@ -4,9 +4,17 @@
 
 Warning, this reverse shell is not portable, just for show example how does a reverse shell in x86 in assembly code, this method is really old
 
-- Ligne 78 v2 : LoadLibraryA replace it by your own offset
-- Ligne 79 v2 : GetProcAddress replace it by your own offset
-- Ligne 193 v2: SOKADDR_IN set you own port and IP address
+* reverse_bind_cpp 
+* reverse_bin_cpp_v2
+  - try to catch ipv4 address of ethernet card
+* cpp ( reverse shell cpp )
+* v1 ( reverse shell asm )
+  - Replace all address offsets of called functions
+* v2 ( reverse shell asm )
+  - To do remote all TEB/PEB, remove all bytes null
+  - Ligne 78 v2 : LoadLibraryA replace it by your own offset
+  - Ligne 79 v2 : GetProcAddress replace it by your own offset
+  - Ligne 193 v2: SOKADDR_IN set you own port and IP address
 
 ### Architecture
 
