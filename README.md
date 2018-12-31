@@ -21,14 +21,12 @@ Win32 plateform
 ```
 $nasm -f win32 reverse_shell.s -o reverse_shell.o
 $ld -m i386 reverse_shell.o -o reverse_shell32.exe
-
 ```
 ### Show Hex
 
 ```
 $nasm -f bin reverse_shell.s -o reverse_shell_bin.o
 $cat reverse_shell_bin | hexdump -C
-
 ```
 ## :two: Exploit
 
