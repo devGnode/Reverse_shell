@@ -41,9 +41,8 @@ int main(int argc, char** argv) {
 			}
 			Sleep(200);	
 		}
-		 
+		sock->Clean( );
   		sock->Close( );
-  		
 	}else
 	printf("[-] Sokcet invalid !");;
 	
