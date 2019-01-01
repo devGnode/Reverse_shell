@@ -40,7 +40,7 @@ Win32 plateform
   * IAT import ws2_32.dll
   * Inject Reverse_shell
   * close binary file Exe
-  
+\[\*\] pass to x64
 
 ## :two: Compilation 
 
