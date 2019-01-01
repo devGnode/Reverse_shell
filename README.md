@@ -2,7 +2,7 @@
 
 ## :one: Reverse Shell x86 :fr:
 
-This project show how work a reverse shell x86 in differents languages as cpp or in assembly code. the differentes method describe below are very know and old, this trick are widely documented on internet.
+This tinny project showing how does work a reverse shell x86 in differents languages as cpp or in assembly code. the differentes methods describe below are very know and old, these tricks are widely documented on internet.
 
 ### Tree
 
