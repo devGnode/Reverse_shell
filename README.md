@@ -37,10 +37,13 @@ Warning, this reverse shell is not portable, just for show example how does a re
 Win32 plateform
 
 - XP 
+- Win vista
 - Win 7
 - Win 10 - Windows Defender Detects it's bad for himself
 
-### Compilation 
+## :two: Compilation 
+
+## ASM x86
 
 ```
 $nasm -f win32 reverse_shell.s -o reverse_shell.o
@@ -52,7 +55,16 @@ $ld -m i386 reverse_shell.o -o reverse_shell32.exe
 $nasm -f bin reverse_shell.s -o reverse_shell_bin.o
 $cat reverse_shell_bin | hexdump -C
 ```
-## :two: Shell Connection 
+## C++
+
+Download Devcpp on windows plateform :
+
+  - Project include library : MinGW64/x86_64-w64-mingw32/lib32/libws2_32.lib
+  - Add director to your project ./lib
+  - Build them
+  - execv
+  
+## :three: Shell Connection 
 
 ### Reverse Tcp netcat
 
