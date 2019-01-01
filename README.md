@@ -21,6 +21,15 @@ Warning, this reverse shell is not portable, just for show example how does a re
   - Ligne 78 v2 : LoadLibraryA replace it by your own offset
   - Ligne 79 v2 : GetProcAddress replace it by your own offset
   - Ligne 193 v2: SOKADDR_IN set you own port and IP address
+  
+### Architecture
+
+Win32 plateform
+
+- XP 
+- Win vista
+- Win 7
+- Win 10 - Windows Defender Detects it's bad for himself
 
 ### Soon
 
@@ -32,18 +41,10 @@ Warning, this reverse shell is not portable, just for show example how does a re
   * Inject Reverse_shell
   * close binary file Exe
   
-### Architecture
-
-Win32 plateform
-
-- XP 
-- Win vista
-- Win 7
-- Win 10 - Windows Defender Detects it's bad for himself
 
 ## :two: Compilation 
 
-## ASM x86
+### Build ASM x86
 
 ```
 $nasm -f win32 reverse_shell.s -o reverse_shell.o
@@ -55,7 +56,7 @@ $ld -m i386 reverse_shell.o -o reverse_shell32.exe
 $nasm -f bin reverse_shell.s -o reverse_shell_bin.o
 $cat reverse_shell_bin | hexdump -C
 ```
-## C++
+### Build C++
 
 Download Devcpp on windows plateform :
 
@@ -89,7 +90,7 @@ $ exploit
 ```
 $netcat -v victim_ip 4444
 ```
-## :three: Example
+## :four: Example
 
 ### Win >= 7 Bind reverse shell \[ powershell.exe \]
 
