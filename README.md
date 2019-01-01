@@ -4,6 +4,8 @@
 
 Warning, this reverse shell is not portable, just for show example how does a reverse shell in x86 in assembly code, this method is really old
 
+## Tree
+
 * reverse_bind_cpp 
 * reverse_bin_cpp_v2
   - try to catch ipv4 address of ethernet card
@@ -20,7 +22,9 @@ Warning, this reverse shell is not portable, just for show example how does a re
   - Ligne 79 v2 : GetProcAddress replace it by your own offset
   - Ligne 193 v2: SOKADDR_IN set you own port and IP address
 
-\[\*\] Soon, coding a lil program :
+## Soon
+
+\[\*\] coding a lil program :
   * Open exe
   * read PE
   * find EP
