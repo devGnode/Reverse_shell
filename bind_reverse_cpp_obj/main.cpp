@@ -1,8 +1,8 @@
 #include <iostream>
 #include "windows.h"
 
-#include "lib/socket.h"
-#include "lib/ReverseShell.h"
+#include "socket.h"
+#include "ReverseShell.h"
   
 int main(int argc, char** argv) {
 	 
