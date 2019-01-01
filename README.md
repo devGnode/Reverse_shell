@@ -20,6 +20,14 @@ Warning, this reverse shell is not portable, just for show example how does a re
   - Ligne 79 v2 : GetProcAddress replace it by your own offset
   - Ligne 193 v2: SOKADDR_IN set you own port and IP address
 
+\[\*\] Soon, coding a lil program :
+  * Open exe
+  * read PE
+  * find EP
+  * IAT import ws2_32.dll
+  * Inject Reverse_shell
+  * close Exe
+  
 ### Architecture
 
 Win32 plateform
