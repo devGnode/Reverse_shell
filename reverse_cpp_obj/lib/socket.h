@@ -10,7 +10,7 @@ class Socket{
 	private:
 		SOCKET sock = NULL;
 		SOCKADDR_IN * sin;
-	
+		
 	public:
 		int Errorno = 0;
 		
@@ -34,10 +34,9 @@ return this->sock;
 }
 
 Socket::Socket( SOCKET sin ){
-	this->sock = sock; 
+	this->sock = sin; 
 }
 Socket::Socket( SOCKADDR_IN * sin ){
-	
 	WSAData wsa;
 	
 	this->sin = sin;
@@ -72,13 +71,13 @@ return connect( this->sock, ( SOCKADDR *)this->sin, sizeof(SOCKADDR_IN)  );
 }
 
 Socket * Socket::Accept( SOCKADDR_IN * sin ){
-	SOCKET sok;
-	sock =accept( this->sock, NULL, NULL ) ;
-return new Socket( sock );	
+	Socket * ps;
+	ps = new Socket( accept( this->sock, NULL, NULL ) );
+return ps;	
 }
 
 bool Socket::valid( ){
-return this->sock == NULL || this->sock != INVALID_SOCKET;
+return this->sock != NULL && this->sock != INVALID_SOCKET && this->sock > 0 && this->sock != SOCKET_ERROR;
 }
 void Socket::Clean( ){
 	WSACleanup();
@@ -90,7 +89,6 @@ void Socket::Close(){
 		closesocket(
 			this->sock
 		);
-		WSACleanup();
 	}
 	
 }
