@@ -29,7 +29,7 @@ Win32 plateform
   - [x] XP 
   - [x] vista
   - [x] 7
-  - [x] 10 - Windows Defender Detects it's bad for himself for assembly code 
+  - [x] 10 - For all assembly codes Windows Defender detected that program is bad for himself 
 
 ### Soon
 
