@@ -2,7 +2,7 @@
 
 ## :one: Reverse Shell x86 :fr:
 
-Warning, this reverse shell is not portable, just for show example how does a reverse shell in x86 in assembly code, this method is really old
+This project show how work a reverse shell x86 in differents languages as cpp or in assembly code. the differentes method describe below are very know and old, this trick are widely documented on internet.
 
 ### Tree
 
