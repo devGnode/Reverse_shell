@@ -26,10 +26,10 @@ Warning, this reverse shell is not portable, just for show example how does a re
 
 Win32 plateform
 
-[x] XP 
-[x] vista
-[x] 7
-[x] 10 - Windows Defender Detects it's bad for himself
+  - [x] XP 
+  - [x] vista
+  - [x] 7
+  - [x] 10 - Windows Defender Detects it's bad for himself
 
 ### Soon
 
