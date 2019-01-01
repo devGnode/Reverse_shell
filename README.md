@@ -25,12 +25,12 @@ Warning, this reverse shell is not portable, just for show example how does a re
 ### Soon
 
 \[\*\] coding a lil program :
-  * Open exe
+  * Open biary file exe
   * read PE
   * find EP
   * IAT import ws2_32.dll
   * Inject Reverse_shell
-  * close Exe
+  * close binary file Exe
   
 ### Architecture
 
