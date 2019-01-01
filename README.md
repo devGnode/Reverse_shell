@@ -26,10 +26,10 @@ Warning, this reverse shell is not portable, just for show example how does a re
 
 Win32 plateform
 
-- XP 
-- Win vista
-- Win 7
-- Win 10 - Windows Defender Detects it's bad for himself
+[x] XP 
+[x] vista
+[x] 7
+[x] 10 - Windows Defender Detects it's bad for himself
 
 ### Soon
 
@@ -60,10 +60,10 @@ $cat reverse_shell_bin | hexdump -C
 
 Download Devcpp on windows plateform :
 
-  - Project include library : MinGW64/x86_64-w64-mingw32/lib32/libws2_32.lib
-  - Add director to your project ./lib
-  - Build them
-  - execv
+  - Project include library : **MinGW64/x86_64-w64-mingw32/lib32/libws2_32.lib**
+  - Add **lib** directory to your project.
+  - Build it.
+  - execv.
   
 ## :three: Shell Connection 
 
