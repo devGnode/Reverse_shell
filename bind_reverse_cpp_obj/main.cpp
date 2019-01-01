@@ -6,8 +6,6 @@
   
 int main(int argc, char** argv) {
 	 
-	
-	HANDLE sck;
 	SOCKADDR_IN sin; 
 	Socket * sock;
 	Reverseshell * shell;
