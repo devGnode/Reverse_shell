@@ -75,7 +75,7 @@ endstruc
 ; DATA
 ;=========================
 section .data
-	;LoadLibraryA: 	dd	0x770157B0 ; <--- NoNeed because use x64 bits
+	;LoadLibraryA: 	dd	0x770157B0 ; <--- NoNeed because use x64 bits, I dunno how get this addr via an exe, so i will try to remote TEB
 	;GetProcAddress: dd	0x77014EE0 ; <---  NoNeed because use x64 bits
 ; ========================
 ; Pointer
