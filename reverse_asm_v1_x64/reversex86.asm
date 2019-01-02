@@ -105,12 +105,34 @@ _start:
 ;
 	mov rbp, rsp		; stack
 	sub rsp, 0x28		; string pointer
-
+	
+	;	lil understanding
+	;	 fs:+0x60 --> TEB
+	;	TEB:+0x18 --> ndll.dll section data
+	;		*	[ntdll.data]+0x28 : 00763F90
+	;				|
+	;				|- [00763F90]+0x00 : ntdll.dll.data++
+	;			[ntdll.dll.data++]+0x18 : 007638F0 
+	;			AND
+	;			[007638F0]+0x10 --> kernel32.dll
+	;
+	; ?? But if you retrace memory map x64 to TEB:+0x18 --> ndll.dll section data
+	;	00000000|00000000|00000000|00000000|
+	;	00000000|00763F90|00000000|00000000|
+	;	00000000|00000000|**007638F0**|....
+	;
+	;	why do not make
+	;	mov rdx, 0x60
+	;	mov rdx, [gs:rdx]	; TEB
+	;	mov rax, [rdx+0x18]	; ntdll.dll .section data
+	;	mov esi, [rax+0x38]	--> 007638F0
+	;	mov rdi, [rsi]
+	
 	mov rdx, 0x60
 	mov rdx, [gs:rdx]	; TEB
 	mov rax, [rdx+0x18]	; ntdll.dll .section data
 	mov esi, [rax+0x28]	; ??
-	mov rdx, [rsi]		; ??
+	mov rdx, [rsi]		; ?? 
 	mov eax, [rdx+0x18]	; KernelBase
 	mov rdi, [rax+0x10]	; KERNELBASE.dll
 
