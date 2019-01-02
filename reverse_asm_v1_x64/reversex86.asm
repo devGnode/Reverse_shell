@@ -75,8 +75,8 @@ endstruc
 ; DATA
 ;=========================
 section .data
-	LoadLibraryA: 	dd	0x770157B0 ; <---
-	GetProcAddress: dd	0x77014EE0 ; <--- 
+	;LoadLibraryA: 	dd	0x770157B0 ; <--- NoNeed because use x64 bits
+	;GetProcAddress: dd	0x77014EE0 ; <---  NoNeed because use x64 bits
 ; ========================
 ; Pointer
 ;=========================
@@ -116,11 +116,6 @@ _start:
 
 	mov [rsp+0x1C],rdi
 
-	;
-	;NOT FINISHED TO HERE NOT TESTING, 
-	;ONLY UP HAS BEEN TESTING 
-	;
-
 	; ===========================
 	; make stack pointer str :
 	; ws2_32.dll
@@ -134,6 +129,11 @@ _start:
 	mov [rsp],rax
 	lea rax,[esp]		; ws2_32.dll
 	push rax	
+	
+	;
+	;NOT FINISHED TO HERE NOT TESTING, 
+	;ONLY UP HAS BEEN TESTING 
+	;
 	
 	mov edi, [LoadLibraryA]	; LoadLibraryAtry to get from FS pointer PEB/TEB
 	call rdi		; call
