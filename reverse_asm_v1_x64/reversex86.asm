@@ -124,7 +124,7 @@ _start:
 	;	mov rdx, [gs:rdx]	; TEB
 	;	mov rax, [rdx+0x18]	; ntdll.dll .section data
 	;	mov esi, [rax+0x38]	--> 007638F0
-	;	mov rdi, [rsi]		--> Kernel32.dll
+	;	mov rdi, [rsi+x010]	--> Kernel32.dll
 	
 	mov rdx, 0x60
 	mov rdx, [gs:rdx]	; TEB
