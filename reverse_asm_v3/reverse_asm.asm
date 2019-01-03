@@ -59,9 +59,6 @@ struc WSAData
 	.szSystemStatus		resb	WSASYS_STATUS_LEN + 1
 endstruc
 
-struc IN_ADDR
-	.s_addr		resd	1
-endstruc
 struc SOCKADDR_IN
 	.sin_family	resw	1
 	.sin_port	resw	1
@@ -83,7 +80,6 @@ section .bss
 	spi resb 0x10
 	swd resb 0x10A
 	sss resb 0x10
-	sin resb 0x4
 ; ========================
 ; text
 ;=========================
