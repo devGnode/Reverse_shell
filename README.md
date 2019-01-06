@@ -17,10 +17,10 @@ This tinny project showing how does work a reverse shell x86 in differents langu
 * ASM v1 ( reverse shell asm )
   - Replace all address offsets of called functions
 * ASM v2 ( reverse shell asm )
-  - Ligne 78 v2 : LoadLibraryA replace it by your own offset
-  - Ligne 79 v2 : GetProcAddress replace it by your own offset
-  - Ligne 193 v2: SOKADDR_IN set you own port and IP address
- * ASM v3
+  - Ligne 78 : LoadLibraryA replace it by your own offset
+  - Ligne 79 : GetProcAddress replace it by your own offset
+  - Ligne 193: SOKADDR_IN set you own port and IP address
+* ASM v3
   - Remove all null bytes
    
 ### Architecture
