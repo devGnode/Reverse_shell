@@ -17,11 +17,11 @@ This tinny project showing how does work a reverse shell x86 in differents langu
 * ASM v1 ( reverse shell asm )
   - Replace all address offsets of called functions
 * ASM v2 ( reverse shell asm )
-  - To do remote all TEB/PEB, remove all bytes null
   - Ligne 78 v2 : LoadLibraryA replace it by your own offset
   - Ligne 79 v2 : GetProcAddress replace it by your own offset
   - Ligne 193 v2: SOKADDR_IN set you own port and IP address
  * ASM v3
+  - Remove all null bytes
    
 ### Architecture
 
@@ -50,7 +50,7 @@ Win32 plateform
 
 ```
 $nasm -f win32 reverse_shell.s -o reverse_shell.o
-$ld -m i386 reverse_shell.o -o reverse_shell32.exe
+$ld -m i386pe reverse_shell.o -o reverse_shell32.exe
 ```
 ### Show Hex
 
